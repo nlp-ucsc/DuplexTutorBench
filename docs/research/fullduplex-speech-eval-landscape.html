@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Evaluating Full-Duplex Speech Dialogue: Landscape &amp; Innovation Opportunities</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <style>
+    body { max-width: 860px; margin: 2.5rem auto; padding: 0 1.25rem;
+           font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+           line-height: 1.65; color: #1a1a1a; font-size: 16px; }
+    h1 { font-size: 1.9rem; line-height: 1.25; border-bottom: 3px solid #2c5f8a; padding-bottom: .4rem; }
+    h2 { font-size: 1.4rem; margin-top: 2.2rem; border-bottom: 1px solid #ddd; padding-bottom: .3rem; color: #2c5f8a; }
+    h3 { font-size: 1.12rem; margin-top: 1.6rem; color: #333; }
+    a { color: #1a6cb3; }
+    code { background: #f3f3f3; padding: .1rem .3rem; border-radius: 3px; font-size: .9em; }
+    blockquote { border-left: 4px solid #f0ad4e; background: #fffaf0; margin: 1rem 0; padding: .6rem 1rem; }
+    em { color: #444; }
+    hr { border: none; border-top: 1px solid #e0e0e0; margin: 2rem 0; }
+    ul, ol { padding-left: 1.4rem; }
+    li { margin: .25rem 0; }
+    table { border-collapse: collapse; }
+    th, td { border: 1px solid #ccc; padding: .4rem .6rem; }
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Evaluating Full-Duplex Speech Dialogue: Landscape &amp; Innovation Opportunities</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#evaluating-full-duplex-speech-dialogue-landscape--innovation-opportunities">Evaluating Full-Duplex Speech Dialogue: Landscape &amp; Innovation Opportunities</a>
+<ul>
+<li><a href="#bottom-line-up-front">Bottom line up front</a></li>
+<li><a href="#1-landscape-map--grouped-by-what-they-measure">1. Landscape map — grouped by what they measure</a></li>
+<li><a href="#2-turn-taking-naturalness-metrics--the-math">2. Turn-taking naturalness metrics — the math</a></li>
+<li><a href="#3-whats-missing--open-problems">3. What's missing / open problems</a></li>
+<li><a href="#4-ranked-innovation-directions-tailored-to-this-projects-setup">4. Ranked innovation directions (tailored to this project's setup)</a></li>
+<li><a href="#5-caveats-read-before-committing">5. Caveats (read before committing)</a></li>
+<li><a href="#6-open-questions">6. Open questions</a></li>
+<li><a href="#references">References</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="evaluating-full-duplex-speech-dialogue-landscape--innovation-opportunities">Evaluating Full-Duplex Speech Dialogue: Landscape &amp; Innovation Opportunities</h1>
+<p><em>A research briefing on recent (2023–2026) methods for evaluating full-duplex spoken-dialogue / speech-to-speech (S2S) models — how close they are to real humans, and how to measure turn-taking naturalness — with a ranked shortlist of novel directions for the Mock_AITutor project.</em></p>
+<p><strong>Date:</strong> 2026-06-02 <strong>Scope:</strong> Methods <em>beyond</em> the project's current evaluation stack (Audiobox Aesthetics, DNSMOS, ESPnet "Talking Turns" judge, Full-Duplex-Bench–inspired scalar metrics, LLM-judge rubrics). <strong>Method:</strong> Multi-source web research with adversarial fact-checking (23 sources fetched, 111 claims extracted, 25 verified by 3-vote adversarial verification → 23 confirmed, 2 refuted).</p>
+<hr />
+<h2 id="bottom-line-up-front">Bottom line up front</h2>
+<p>The field has moved past everything in the current stack in roughly the last 12 months, and the move plays directly to this project's strengths (separated per-role audio + per-segment timestamps + word-level forced alignment + a 2× RTX 6000 Ada GPU box). Three takeaways:</p>
+<ol type="1">
+<li><strong>Turn-taking evaluation is going multi-turn and task-grounded.</strong> Full-Duplex-Bench v1.5 → v2 reframes turn-taking as one axis among instruction-following + task competence, scored by an <em>automated spoken examiner</em>.</li>
+<li><strong>"Human-likeness" is now measured by Turing-test discrimination</strong> — and <strong>no S2S system passes</strong>; the diagnosed bottleneck is <em>paralinguistic / emotional / persona</em>, not semantics.</li>
+<li><strong>The biggest unclaimed gap:</strong> nobody compares a model's <em>turn-taking distribution</em> (gaps / overlaps / floor-transfer-offsets) to a <em>human reference distribution</em> with a distance metric, and nobody has used <strong>VAP (Voice Activity Projection) as a reference-free turn-taking scorer on full-duplex two-party generated conversations</strong>. Both are squarely buildable with the existing infrastructure.</li>
+</ol>
+<hr />
+<h2 id="1-landscape-map--grouped-by-what-they-measure">1. Landscape map — grouped by what they measure</h2>
+<h3 id="a-turn-taking--overlap-behavior-audio-native">A. Turn-taking &amp; overlap behavior (audio-native)</h3>
+<ul>
+<li><strong>Full-Duplex-Bench v1.5</strong> [1] — four <em>controlled overlap scenarios</em>: user interruption, user backchannel, user talking to others, background speech. Two timing metrics reported <strong>separately</strong>: <strong>stop latency</strong> (overlap onset → model stops) and <strong>re-entry / response latency</strong> (overlap end → next utterance), plus categorical dialogue behaviors and <strong>prosodic adaptation</strong> (speaking rate, pitch, intensity, UTMOSv2). Runs on Moshi, Freeze-Omni, Gemini, Nova Sonic, GPT-4o Realtime.
+<ul>
+<li><em>Hard number worth citing:</em> GPT-4o Realtime stops fastest (<strong>0.18–0.23 s</strong>) but <strong>re-entry latencies run ~1.16–3.0 s across systems vs. ~200 ms for humans → the best system is 5–6× slower than a human interlocutor.</strong></li>
+</ul></li>
+<li><strong>Full-Duplex-Bench v2</strong> [2] (Oct 2025) — multi-turn, with an <strong>automated spoken examiner</strong> enforcing staged goals under <strong>Fast vs. Slow pacing</strong>; scores three first-class axes: turn-taking fluency, multi-turn instruction-following, task competence.</li>
+<li><strong>ESPnet "Talking Turns" judge</strong> (Arora et al., ICLR 2025) — <em>already used in this project.</em> Per-chunk turn-taking label agreement.</li>
+</ul>
+<h3 id="b-content--task-quality-cascaded-or-hybrid--transcript-based">B. Content / task quality (cascaded or hybrid — transcript-based)</h3>
+<ul>
+<li><strong>URO-Bench</strong> [3] — content scored by <strong>ASR (Whisper-large-v3 / paraformer-zh) → GPT-4o-mini</strong> on accuracy / relevance / clarity / completeness. Its entire speech-side metric set is only <strong>4 metrics</strong>: task-accomplish score, UTMOS, WER/CER, <strong>a single first-packet latency</strong>. <strong>Zero turn-taking-dynamics measurement</strong> (verified by full-text search). It is a <em>hybrid</em> — GPT-4o-Audio is used only for a small paralinguistic/SRT subset. → This project's pipeline already exceeds it on turn-taking.</li>
+<li><strong>dGSLM</strong> (Generative Spoken Dialogue Language Modeling) [4] — original source of corpus-level IPU / pause / gap / overlap statistics for <em>generated</em> dialogue (the ones already listed in <code>speech_eval/docs/deferred.md</code>).</li>
+</ul>
+<h3 id="c-holistic-human-likeness-newest-frontier">C. Holistic human-likeness (newest frontier)</h3>
+<ul>
+<li><strong>S2S Turing Test + STuring</strong> [5] (ICLR 2026) — <strong>2,968 human judgments, 9 SOTA S2S systems, 28 participants.</strong> <strong>No system passed</strong> (success 0.07–0.31 vs. 0.70–0.87 human-human). Diagnosed via an <strong>18-dimension human-likeness taxonomy</strong> → bottleneck is <em>paralinguistic features, emotional expressivity, conversational persona</em>, not semantic understanding. Ships <strong>STuring</strong>, an interpretable Qwen2.5-Omni-7B-based automatic human-likeness scorer (96–97% discrimination accuracy).
+<ul>
+<li>⚠️ <strong>Critical caveat:</strong> the 9 systems are <em>largely half-duplex / turn-based</em> (GPT-4o, Gemini 2.5-Pro, Qwen3, Kimi, Claude Sonnet 4, …) and <strong>do NOT include this project's full-duplex backends</strong> (Moshi/MoshiVis/PersonaPlex). The "no system passes / paralinguistic bottleneck" finding is about S2S <em>broadly</em>, and the paper self-labels "preliminary." This scope gap is itself an opening.</li>
+</ul></li>
+</ul>
+<h3 id="d-audio-quality-non-interactional">D. Audio quality (non-interactional)</h3>
+<ul>
+<li><strong>Audiobox Aesthetics, DNSMOS</strong> — <em>already used.</em> They say nothing about <em>interaction</em>.</li>
+</ul>
+<hr />
+<h2 id="2-turn-taking-naturalness-metrics--the-math">2. Turn-taking naturalness metrics — the math</h2>
+<p>This is the section most relevant to "naturalness of the turn-taking mechanism," and where the strongest quantitative grounding exists.</p>
+<h3 id="the-canonical-human-reference-distributions-the-comparison-target">The canonical human reference distributions (the comparison target)</h3>
+<ul>
+<li><strong>Modal inter-turn gap ≈ 200 ms; 70–82% of transitions &lt; 500 ms</strong> (Levinson &amp; Torreira 2015 [6]; cross-linguistically robust per Stivers et al. 2009, modes 0–200 ms across 10 languages).</li>
+<li><strong>Switchboard floor-transfer-offset (FTO) statistics</strong> (348 conversations, ~38 h) — concrete, ready to use as a reference [6]:
+<ul>
+<li><em>Between-overlaps</em> (overlapping transitions): modal <strong>96 ms</strong>, median <strong>205 ms</strong>, mean <strong>275 ms</strong> (75% &lt; 374 ms)</li>
+<li><em>Within-overlaps</em>: modal <strong>350 ms</strong>, median <strong>389 ms</strong>, mean <strong>447 ms</strong></li>
+<li><strong>30.1%</strong> of floor transfers involve overlap; only <strong>3.8%</strong> of total signal is simultaneous speech.</li>
+</ul></li>
+</ul>
+<h3 id="the-key-methodological-move-distribution-to-distribution-distance">The key methodological move: distribution-to-distribution distance</h3>
+<p>Best practice is to treat turn-taking as a <strong>distribution</strong> and score realism by <strong>distance to a human reference</strong>, not by scalar means:</p>
+<ul>
+<li><strong>FTO</strong> = (start of next speaker) − (end of current speaker); negative = overlap, positive = gap.</li>
+<li>Build per-system histograms of FTO / gap-duration / overlap-duration / backchannel-timing.</li>
+<li>Score with <strong>Kolmogorov–Smirnov (KS) distance, 1-D Wasserstein / Earth Mover's Distance (EMD), or Jensen–Shannon (JS) divergence</strong> against the human reference.</li>
+</ul>
+<blockquote>
+<p><strong>Verified gap:</strong> Full-Duplex-Bench v1.5 reports <em>scalar</em> stop/response latency; URO-Bench reports a <em>single</em> first-packet latency. <strong>No full-duplex benchmark currently reports a full-distribution distance to a human reference.</strong> This is the cleanest open lane.</p>
+</blockquote>
+<h3 id="predictive-turn-taking-models-as-evaluators--vap">Predictive turn-taking models as evaluators — VAP</h3>
+<ul>
+<li><strong>Voice Activity Projection (VAP)</strong> (Ekstedt &amp; Skantze, KTH) [7] — self-supervised, incremental model on <strong>raw stereo waveform + voice activity</strong>, outputs a probability distribution over <strong>256 discretized "projection windows"</strong> of each speaker's activity over the next <strong>2 s</strong>. <strong>No annotations, no feature extraction, no speaker normalization.</strong> Four turn-taking sub-tasks: Shift-vs-Hold, Shift-Prediction, Backchannel-Prediction, Short-vs-Long.</li>
+<li><strong>Precedent that matters:</strong> the VAP authors <strong>already established VAP as an automatic evaluator</strong> of turn-hold / turn-yield cues [8] — <strong>but only for TTS <em>single utterances</em>, NOT full-duplex two-party generated conversations.</strong> Documented risk: VAP scores can be "variable depending on the synthesizer."</li>
+</ul>
+<h3 id="prosodic-entrainment-the-paralinguistic-axis-nobody-wires-in">Prosodic entrainment (the paralinguistic axis nobody wires in)</h3>
+<ul>
+<li>Kruyt et al. 2023 [9] — <strong>12 distinct entrainment methods</strong> (global/local proximity, global/local convergence, local synchrony, LMM, geometric, TAMA, hybrid, cross-recurrence quantification, windowed lagged cross-correlation). Applied to one corpus they give <strong>non-identical</strong> results — each captures a different entrainment subtype. <strong>Method choice is a substantive decision that must be justified</strong>, not a detail.</li>
+</ul>
+<h3 id="a-human-human-full-duplex-reference-corpus-that-matches-this-projects-data-format">A human-human full-duplex reference corpus that matches this project's data format</h3>
+<ul>
+<li>Zhou et al. 2025 [10] — Chinese 10 h + English 5 h, <strong>isolated-room dual-track recording → separate per-speaker tracks</strong>, concurrent speech as overlapping intervals, per-line start/end timestamps + speaker ID + transcription. This <strong>mirrors the project's <code>tutor_full.wav</code> / <code>student_full.wav</code> + JSONL</strong> exactly, making direct distributional comparison feasible. (One refuted overclaim: do <em>not</em> say this design "enables full-duplex modeling rather than turn-based" — that framing was killed in verification.)</li>
+</ul>
+<hr />
+<h2 id="3-whats-missing--open-problems">3. What's missing / open problems</h2>
+<ol type="1">
+<li><strong>No distribution-level turn-taking realism metric</strong> against a human reference (everyone reports scalars).</li>
+<li><strong>VAP has never been applied to full-duplex two-party <em>generated</em> S2S conversations</strong> — only TTS single utterances.</li>
+<li><strong>Inter-speaker prosodic entrainment is in no full-duplex eval pipeline</strong> (not FDB, URO-Bench, Talking Turns, Audiobox, or the Turing-test work) — yet entrainment <em>is</em> the paralinguistic axis the Turing-test paper names as the human-likeness bottleneck.</li>
+<li><strong>No reference corpus for task-oriented / asymmetric dyads.</strong> Switchboard / Fisher / CANDOR are <em>casual peer chat</em>. A <strong>student↔︎tutor</strong> interaction is asymmetric and task-driven — their gap/overlap/entrainment distributions may be the <strong>wrong target</strong>. This domain-mismatch is an open question <em>and</em> a publishable framing.</li>
+<li><strong>Confound:</strong> turn-taking-mechanism naturalness is entangled with content/pedagogy — a model that monologues looks "turn-taking-poor" for content reasons. Disentangling these is unsolved.</li>
+<li><strong>No validity study</strong> showing which automatic metrics correlate with human naturalness judgments for <em>true full-duplex</em> dialogue (the Turing-test systems were half-duplex).</li>
+</ol>
+<hr />
+<h2 id="4-ranked-innovation-directions-tailored-to-this-projects-setup">4. Ranked innovation directions (tailored to this project's setup)</h2>
+<p>Ranked by leverage × defensibility × fit to existing infrastructure (separated per-role audio + timestamps + forced alignment + 2× RTX 6000 Ada).</p>
+<h3 id="-1--distributional-turn-taking-realism-highest-leverage-lowest-risk">⭐ #1 — Distributional turn-taking realism (highest leverage, lowest risk)</h3>
+<ul>
+<li><strong>What:</strong> From the JSONL timestamps, compute FTO / gap / overlap-duration / backchannel-timing <strong>distributions</strong> per system; score human-likeness as <strong>KS / Wasserstein-EMD / JS divergence</strong> to a human reference — separating between-overlaps (negative FTO) from within-overlaps and clean gaps.</li>
+<li><strong>Builds on:</strong> Levinson &amp; Torreira / Stivers references; FDB metric <em>definitions</em>. <strong>New:</strong> no full-duplex benchmark reports distribution-to-human-reference <em>distance</em>.</li>
+<li><strong>Reference corpus:</strong> Switchboard / Fisher (FTO stats already published), CANDOR, or Zhou et al. 2025.</li>
+<li><strong>Cost:</strong> trivial — pure post-processing on data already written.</li>
+</ul>
+<h3 id="-2--vap-as-a-reference-free-turn-taking-naturalness-scorer-for-full-duplex-s2s">⭐ #2 — VAP as a reference-free turn-taking naturalness scorer for full-duplex S2S</h3>
+<ul>
+<li><strong>What:</strong> Run pretrained VAP over the stereo (tutor/student) audio → score turn-hold/yield appropriateness + predicted shift/backchannel timing on the <em>generated</em> conversation; calibrate against VAP-on-human-human.</li>
+<li><strong>Builds on:</strong> Ekstedt &amp; Skantze's VAP-as-evaluator precedent. <strong>New:</strong> extending it from TTS single utterances to <strong>full-duplex two-party generated conversations</strong> — explicitly not yet demonstrated.</li>
+<li><strong>Reference corpus:</strong> any human-human stereo dialogue (Switchboard / Fisher / CANDOR / Zhou).</li>
+<li><strong>Cost:</strong> VAP inference is light on the GPU box. <strong>Report VAP-on-human as a calibration baseline</strong> (synthesizer-variability risk is documented).</li>
+</ul>
+<h3 id="3--bidirectional-prosodic-entrainment-between-tutor--student">#3 — Bidirectional prosodic entrainment between tutor &amp; student</h3>
+<ul>
+<li><strong>What:</strong> Measure prosodic convergence/synchrony (F0, intensity, rate) between the two role tracks using a <em>justified subset</em> of the 12 Kruyt methods (e.g., local synchrony + windowed lagged cross-correlation for dynamics, global convergence for trend); compare magnitude to human-human reference.</li>
+<li><strong>Builds on:</strong> entrainment literature + the Turing-test finding that paralinguistics is the bottleneck. <strong>New:</strong> entrainment is in <em>no</em> full-duplex eval pipeline. Forced alignment gives clean per-role word/utterance F0 + energy contours.</li>
+<li><strong>Caveat:</strong> must justify which method(s) — they are non-interchangeable.</li>
+</ul>
+<h3 id="4--meta-evaluation--validity-study-higher-effort-high-payoff">#4 — Meta-evaluation / validity study (higher effort, high payoff)</h3>
+<ul>
+<li><strong>What:</strong> Collect human naturalness/human-likeness judgments on the full-duplex tutoring dialogues (MTurk-style, or the STuring scorer as a target) and test <strong>which automatic metric</strong> (Audiobox, DNSMOS, ESPnet turn-taking, the new FTO-distance, VAP) actually correlates with them.</li>
+<li><strong>Builds on:</strong> the ICLR-2026 18-dim taxonomy + STuring. <strong>New:</strong> a validity study for <em>true full-duplex tutoring</em> dialogue — the Turing-test systems were half-duplex and excluded these backends.</li>
+<li><strong>Cost:</strong> needs human data collection; STuring generalization to tutoring is untested.</li>
+</ul>
+<blockquote>
+<p><strong>The strongest <em>single paper</em> here</strong> is a fusion: <strong>a distribution-level + VAP-based "interactional naturalness" metric suite, applied to task-oriented (tutoring) full-duplex dialogue, with a small human-correlation validity study and a discussion of why casual-chat reference distributions are the wrong target for asymmetric tutoring dyads.</strong> That hits four named gaps at once, and existing infrastructure covers ~80% of it.</p>
+</blockquote>
+<hr />
+<h2 id="5-caveats-read-before-committing">5. Caveats (read before committing)</h2>
+<ul>
+<li><strong>Very recent / pre-publication:</strong> FDB-v2 (Oct 2025) and the S2S Turing test (Feb 2026) are bleeding-edge; the Turing-test paper self-labels "preliminary." Adjacent live work (ParaS2S, MULTI-Bench, HumDial) was noted.</li>
+<li><strong>Turing-test scope mismatch:</strong> its systems are largely half-duplex and exclude this project's backends — apply its conclusions with care (this is also an opening).</li>
+<li><strong>Reference distributions are corpus/language-dependent</strong>, and the Corps et al. (2022, <em>Cognition</em>) critique cautions that phonetic inter-speaker gaps are an imperfect proxy for <em>linguistically</em>-defined turns — relevant if gaps are framed as evidence about speech planning rather than as a descriptive matching target.</li>
+<li><strong>Two claims were refuted in verification</strong> and excluded: that FDB-v1.5 is "the first" automated overlap benchmark, and that the Zhou dual-track design "enables full-duplex modeling." Do not repeat either framing.</li>
+<li>Directions #1–#4 are <em>synthesis</em> (graded medium/low confidence), not single-source-verified — treat as well-grounded hypotheses, not settled facts.</li>
+</ul>
+<hr />
+<h2 id="6-open-questions">6. Open questions</h2>
+<ol type="1">
+<li>Does VAP, trained on human-human telephone/dyadic speech, give meaningful and calibrated turn-taking-cue scores when run on full-duplex S2S model audio (Moshi/MoshiVis/GPT-Realtime), or does the synthesizer-dependent variability noted for TTS waveforms degrade it — and what human-human calibration baseline is needed?</li>
+<li>Which automatic metric correlates best with human naturalness/human-likeness judgments for <em>true</em> full-duplex dialogue, and does STuring's discrimination generalize from its training systems to these backends and the tutoring domain?</li>
+<li>What is the right human-reference corpus for a <em>tutoring</em> (asymmetric, task-oriented, instructional) dyad? Switchboard/Fisher/CANDOR are casual peer conversation, so their gap/overlap/entrainment distributions may not be the correct target.</li>
+<li>How should one disentangle turn-taking-mechanism naturalness from content/pedagogy quality so that distributional gap/overlap/VAP scores are not confounded by the model simply talking more or less?</li>
+</ol>
+<hr />
+<h2 id="references">References</h2>
+<ol type="1">
+<li>Full-Duplex-Bench v1.5 — <a href="https://arxiv.org/html/2507.23159v1">https://arxiv.org/html/2507.23159v1</a> (also <a href="https://arxiv.org/abs/2507.23159">https://arxiv.org/abs/2507.23159</a>)</li>
+<li>Full-Duplex-Bench v2 — <a href="https://arxiv.org/abs/2510.07838">https://arxiv.org/abs/2510.07838</a></li>
+<li>URO-Bench — <a href="https://arxiv.org/pdf/2502.17810">https://arxiv.org/pdf/2502.17810</a></li>
+<li>Generative Spoken Dialogue Language Modeling (dGSLM) — <a href="https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00545/115240/Generative-Spoken-Dialogue-Language-Modeling">https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00545/115240/Generative-Spoken-Dialogue-Language-Modeling</a></li>
+<li>S2S Turing Test + STuring (ICLR 2026) — <a href="https://arxiv.org/abs/2602.24080">https://arxiv.org/abs/2602.24080</a></li>
+<li>Levinson &amp; Torreira (2015), <em>Timing in turn-taking and its implications for processing models of language</em> — <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4464110/">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4464110/</a></li>
+<li>Voice Activity Projection (VAP) — project page <a href="https://erikekstedt.github.io/VAP/">https://erikekstedt.github.io/VAP/</a>; paper <a href="https://arxiv.org/pdf/2305.17971">https://arxiv.org/pdf/2305.17971</a>; code <a href="https://github.com/ErikEkstedt/VoiceActivityProjection">https://github.com/ErikEkstedt/VoiceActivityProjection</a></li>
+<li>VAP as automatic evaluator of turn-taking cues for conversational speech synthesis (Interspeech 2023) — <a href="https://www.isca-archive.org/interspeech_2023/ekstedt23_interspeech.html">https://www.isca-archive.org/interspeech_2023/ekstedt23_interspeech.html</a></li>
+<li>Kruyt, de Jong, D'Ausilio &amp; Beňuš (2023), comparison of 12 prosodic-entrainment methods (JSLHR) — <a href="https://pubs.asha.org/doi/10.1044/2023_JSLHR-23-00094">https://pubs.asha.org/doi/10.1044/2023_JSLHR-23-00094</a></li>
+<li>Zhou et al. (2025), human-human full-duplex dual-track corpus — <a href="https://arxiv.org/html/2509.04093">https://arxiv.org/html/2509.04093</a></li>
+</ol>
+<p><em>This report was produced by a multi-source deep-research pass with 3-vote adversarial verification. Innovation directions (Section 4) are synthesis and graded for confidence; verify against current literature before asserting as fact in a publication.</em></p>
+</body>
+</html>

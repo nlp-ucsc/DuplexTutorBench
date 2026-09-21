@@ -1,0 +1,81 @@
+# Example sweep config for `scripts/run_sweep.py`.
+#
+# Each entry in `runs:` becomes one `python -m duplex` invocation. `name`
+# becomes `--run-name`; every other key maps snake_case -> --kebab-case.
+# Boolean true emits a bare flag (e.g. force: true -> --force); null/false is
+# omitted. Each child run lands in its own duplex_output/{name}/ and is
+# independently resumable, so killing the sweep mid-way is safe.
+#
+# Run:    uv run python scripts/run_sweep.py scripts/example_sweep.yaml
+# Inspect:  uv run python scripts/run_sweep.py scripts/example_sweep.yaml --dry-run
+#
+# Note: PyYAML is required (`uv add pyyaml`). JSON configs work without it.
+
+runs:
+  - name: gemini_gpt_v1
+    tutor_backend: gpt-realtime
+    student_backend: gemini-live
+    n: 6
+    attempts: 5
+    concurrency: 5
+    max_duration: 120
+
+  - name: gemini_gemini_v1
+    tutor_backend: gemini-live
+    student_backend: gemini-live
+    n: 6
+    attempts: 5
+    concurrency: 5
+    max_duration: 120
+
+  - name: gemini_personaplex_v1
+    tutor_backend: personaplex
+    student_backend: gemini-live
+    n: 6
+    attempts: 5
+    max_duration: 120
+
+  - name: gemini_2_5_moshivis_v1
+    tutor_backend: moshivis
+    student_backend: gemini-live
+    gemini_model: gemini-2.5-flash-native-audio-preview-12-2025
+    n: 6
+    attempts: 5
+    max_duration: 120
+
+  - name: gemini_moshivis_v1
+    tutor_backend: moshivis
+    student_backend: gemini-live
+    n: 6
+    attempts: 5
+    max_duration: 120
+
+  - name: gemini_gpt_v2
+    tutor_backend: gpt-realtime
+    student_backend: gemini-live
+    n: 6
+    attempts: 5
+    concurrency: 5
+    max_duration: 120
+
+  - name: gemini_gemini_v2
+    tutor_backend: gemini-live
+    student_backend: gemini-live
+    n: 6
+    attempts: 5
+    concurrency: 5
+    max_duration: 120
+
+  - name: gemini_personaplex_v2
+    tutor_backend: personaplex
+    student_backend: gemini-live
+    n: 6
+    attempts: 5
+    max_duration: 120
+
+  - name: gemini_moshivis_v2
+    tutor_backend: moshivis
+    student_backend: gemini-live
+    n: 6
+    attempts: 5
+    max_duration: 120

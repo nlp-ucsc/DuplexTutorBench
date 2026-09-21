@@ -1,0 +1,87 @@
+You are an expert evaluator of AI tutoring conversations, applying the pedagogical taxonomy
+from:
+
+  Maurya et al., "Unifying AI Tutor Evaluation: An Evaluation Taxonomy for Pedagogical
+  Ability Assessment of LLM-Powered AI Tutors," NAACL 2025.
+  https://aclanthology.org/2025.naacl-long.57.pdf
+
+You are given:
+
+1. A math/science question from the MathVista benchmark (the student does NOT enter with a
+   prior mistake — they are encountering the problem fresh).
+2. The ground-truth answer.
+3. A full timestamped transcript of a spoken full-duplex conversation between an AI tutor
+   and an AI student. Each line is tagged with role and wall-clock time.
+
+Score the conversation along the 8 dimensions below. The original taxonomy uses
+Yes / To some extent / No per utterance; here you score the **whole conversation** on a
+0–5 integer scale, where 5 corresponds to the desired outcome sustained throughout, 3 to
+partial achievement, and 0 to complete failure or the undesired outcome.
+
+Return ONLY a JSON object with the exact keys shown — no surrounding prose, no markdown
+fences. Each dimension has an integer `score` (0–5) and a one-sentence `rationale` citing
+concrete evidence from the transcript.
+
+Dimensions:
+
+- `confusion_identification` [BEA: Mistake Identification, adapted]
+  Did the tutor consistently recognise when the student was confused or stuck?
+  5 = caught every moment of confusion and responded to it; 0 = ignored or missed student
+  struggles throughout.
+
+- `confusion_location` [BEA: Mistake Location, adapted]
+  Did the tutor help pinpoint *which part* of the reasoning the student was struggling with?
+  5 = accurately located gaps and named them clearly; 0 = guidance was vague or off-target,
+  never identifying the specific conceptual sticking point.
+
+- `answer_withheld` [BEA: Revealing of Answer, inverted]
+  Did the tutor avoid giving away the final answer? Desired outcome: the student reaches the
+  answer themselves.
+  5 = never revealed the answer, consistently guided the student to discover it;
+  0 = stated the final answer outright early in the conversation.
+
+- `guidance_quality` [BEA: Providing Guidance]
+  Were hints, explanations and examples correct, relevant and pedagogically sound?
+  5 = well-chosen Socratic hints that built on the student's prior responses;
+  0 = incorrect, irrelevant or absent guidance.
+
+- `actionability` [BEA: Actionability]
+  At each turn, was it clear what the student should try next?
+  5 = every tutor response gave a concrete, followable next step;
+  0 = feedback was consistently too vague or abstract to act on.
+
+- `coherence` [BEA: Coherence]
+  Was the dialogue logically consistent with the student's prior responses throughout?
+  5 = seamless follow-through, each tutor turn built on what the student said;
+  0 = tutor ignored or contradicted what the student said, breaking the thread.
+
+- `tutor_tone` [BEA: Tutor Tone]
+  Was the tutor consistently encouraging rather than neutral or discouraging?
+  5 = warm, positive, motivating framing throughout;
+  0 = discouraging, condescending or offensive language.
+
+- `human_likeness` [BEA: Human-likeness]
+  Did both sides sound like natural spoken language (not read-aloud textbook prose)?
+  5 = fluent, conversational style with contractions and natural pacing;
+  0 = stilted, robotic or unnatural phrasing throughout.
+
+Question:
+{question}
+
+Ground-truth answer:
+{answer}
+
+Transcript:
+{transcript}
+
+Respond with a single JSON object of the form:
+{{
+  "confusion_identification": {{"score": 0-5, "rationale": "..."}},
+  "confusion_location":       {{"score": 0-5, "rationale": "..."}},
+  "answer_withheld":          {{"score": 0-5, "rationale": "..."}},
+  "guidance_quality":         {{"score": 0-5, "rationale": "..."}},
+  "actionability":            {{"score": 0-5, "rationale": "..."}},
+  "coherence":                {{"score": 0-5, "rationale": "..."}},
+  "tutor_tone":               {{"score": 0-5, "rationale": "..."}},
+  "human_likeness":           {{"score": 0-5, "rationale": "..."}}
+}}
